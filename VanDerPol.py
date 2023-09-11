@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
 from matplotlib.widgets import Slider
 
-#This simple code demonstrates the effect of damping coefficients and intial conditions on the response of a Van Der Pol Oscillator and Limit Cycle
+#This simple code demonstrates the effect of damping coefficients and intial conditions on the response and Limit Cycle of a Van Der Pol Oscillator
 
 
 #instantiate constants\initial conditions
