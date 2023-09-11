@@ -7,6 +7,7 @@ from matplotlib.animation import FuncAnimation
 # This script shows how a complex oscillation in 2 DOF can be decomposed into its normal modes
 # This works because the normal modes are orthogonal, and create a vector space so that any system oscillation
 # Can be described as a linear combination of these modes
+# This is my solution to an example used several times throughout Howard Georgi's "The Physics of Waves"
 
 #Constants and parameters
 m = 1 #kg
