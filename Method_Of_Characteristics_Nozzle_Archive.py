@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Okay I wrote this in freshman year, I sincerely doubt this will run and I do not reccomend trying
+# Okay I wrote this in freshman year, I sincerely doubt this will run and I do not recommend trying
 # At one point this was used to calculate nominal rocket nozzle curvature by solving the prandtl meyer compatibility constraints
 # via the method of characteristics, that being said my grasp of any of those concepts was tenuous at best in freshman year and im sure it shows in this code
 # but hey, it's still neat as a time capsule
