@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Simple Quaternion class definition and demo to show how quaternion operations work
+
 d2r = np.pi/180
 
 class Q:
