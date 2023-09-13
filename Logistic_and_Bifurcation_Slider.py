@@ -10,48 +10,46 @@ from matplotlib.widgets import Slider
 f = lambda alpha, x: alpha * x * ( 1 - x)
 d = np.linspace(0,1,1000)
 fig, ax = plt.subplots(2)
-line = [ax[1].plot(d,f(2,d))[0],ax[1].plot([],[],ls='--',color='red',label='Population Evolution')[0],ax[0].plot([],[],'ro',color='k')[0],ax[0].plot([],[],'ro')[0]]
+line = [ax[1].plot(d,f(2,d))[0],ax[1].plot([],[],ls='--',color='red',label='Population Evolution')[0],ax[0].plot([],[],'ro')[0]]
 ax[1].set_ylabel(r'$x_{n+1}$',fontsize=20)
 ax[1].set_xlabel(r'$x_{n}$',fontsize=20)
 ax[1].set_aspect(1)
 ax[0].set_xlim(2,4)
 ax[0].set_ylim(0,1)
+N= 20
+streaks = [ax[0].plot([],[],color='k')[0] for i in range(N)]
 tol = .001
-i_max = 100
 
-aspace = np.linspace(2,4,100)
+aspace = np.linspace(2,4,200)
 def gen_bif_plot(x_0):
 	bif_data = []	
 	for alph in aspace:
 		x = x_0
-		for i in range(50):
+		xs = []
+		for i in range(500):
+			xs.append(x)			
 			x = f(alph,x)
-		for i in range(50):
-			bif_data.append([alph,x])
-			x = f(alph,x)
-	line[2].set_data(np.array(bif_data).T)	
+		bif_data.append(np.sort(np.array(xs)[-N:]))
+	bif_data = np.array(bif_data).T
+	for i in range(N):
+		streaks[i].set_data(aspace,bif_data[i])
 
 gen_bif_plot(.5)
 
 def update(val):
 	global line
-	i=0
 	x = x_0_slider.val
 	a = alpha_slider.val
-	xs,ys = [x],[0]
+	xs = []
 	line[0].set_data(d,f(a,d))
 	pop_max = np.max(line[0].get_data()[1])
 	ax[1].set_ylim(0,pop_max+.1)
-	while i <= i_max:
-		x_next = f(a,x)
-		xs += [x,x_next]
-		ys += [x_next,x_next]
-		x = x_next
-		i += 1
-	xs.append(x)
-	ys.append(f(a,x))
-	l = int(len(xs)/2)
-	line[3].set_data(np.repeat(a,l),xs[l:])
+	for i in range(100):
+		xs += [x,x]
+		x = f(a,x)
+	ys = np.roll(xs,-1)
+	ys[0],ys[-1]= 0,f(a,x)
+	line[2].set_data(np.repeat(a,N),xs[-N:])
 	line[1].set_data(xs,ys)	
 
 
