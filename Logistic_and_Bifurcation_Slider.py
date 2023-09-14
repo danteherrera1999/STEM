@@ -11,17 +11,20 @@ from matplotlib.widgets import Slider
 f = lambda alpha, x: alpha * x * ( 1 - x)
 d = np.linspace(0,1,1000)
 
+
+
 # Setting up plot objects to be updated later
 fig, ax = plt.subplots(2)
+#Number of bifurcation plot lines, i initially used round objects but it looked bad so I am instead building N curves
+N= 100
+streaks = [ax[0].plot([],[],color='k')[0] for i in range(N)]
 line = [ax[1].plot(d,f(2,d))[0],ax[1].plot([],[],ls='--',color='red',label='Population Evolution')[0],ax[0].plot([],[],'ro')[0]]
 ax[1].set_ylabel(r'$x_{n+1}$',fontsize=20)
 ax[1].set_xlabel(r'$x_{n}$',fontsize=20)
 ax[0].set_xlim(2,4)
 ax[0].set_ylim(0,1)
 
-#Number of bifurcation plot lines, i initially used round objects but it looked bad so I am instead building N curves
-N= 100
-streaks = [ax[0].plot([],[],color='k')[0] for i in range(N)]
+
 
 #alpha values
 aspace = np.linspace(2,4,200)
@@ -71,7 +74,7 @@ alpha_axis = fig.add_axes([.95,.1,.03,.7])
 alpha_slider = Slider(ax=alpha_axis,label=r'$x_{0}$',valmin=2,valmax=4,valinit=2,orientation='vertical')
 alpha_slider.on_changed(update)
 
-#Instantiate x initial slider and add event listener
+#Instantiate x initial and add event listener
 x_0_axis = fig.add_axes([.16,0,.705,.03])
 x_0_slider = Slider(ax=x_0_axis,label=r'$x_{0}$',valmin=.0001,valmax=.9999,valinit=.5)
 x_0_slider.on_changed(update)
