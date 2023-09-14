@@ -71,7 +71,7 @@ alpha_axis = fig.add_axes([.95,.1,.03,.7])
 alpha_slider = Slider(ax=alpha_axis,label=r'$x_{0}$',valmin=2,valmax=4,valinit=2,orientation='vertical')
 alpha_slider.on_changed(update)
 
-#Instantiate x initial and add event listener
+#Instantiate x initial slider and add event listener
 x_0_axis = fig.add_axes([.16,0,.705,.03])
 x_0_slider = Slider(ax=x_0_axis,label=r'$x_{0}$',valmin=.0001,valmax=.9999,valinit=.5)
 x_0_slider.on_changed(update)
