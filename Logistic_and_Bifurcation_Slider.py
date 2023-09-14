@@ -20,7 +20,7 @@ ax[0].set_xlim(2,4)
 ax[0].set_ylim(0,1)
 
 #Number of bifurcation plot lines, i initially used round objects but it looked bad so I am instead building N curves
-N= 20
+N= 100
 streaks = [ax[0].plot([],[],color='k')[0] for i in range(N)]
 
 #alpha values
