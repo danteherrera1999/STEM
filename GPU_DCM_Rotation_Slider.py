@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 import torch as t
 
+# This code generates a cube and plots its 2d projection so that the rotations can be done in the backend by the gpu instead of by the cpu (the stock behavior of plotting a 3d dataset in matplotlib)
+
 # Sets pytorch to perform calculations on the gpu
 cuda = t.device('cuda')
 
