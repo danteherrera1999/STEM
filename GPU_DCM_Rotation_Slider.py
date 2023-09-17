@@ -1,4 +1,4 @@
-#This example shows 3d rotations as performed gpu
+#This example shows 3d rotations performed on a gpu
 import numpy as np
 from numpy import cos,sin,pi
 import matplotlib.pyplot as plt
