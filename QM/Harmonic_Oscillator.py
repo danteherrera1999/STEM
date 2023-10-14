@@ -5,6 +5,11 @@ from scipy.constants import hbar, m_e, pi
 from matplotlib.animation import FuncAnimation
 from matplotlib.widgets import Slider
 
+# This simple animation shows the time evolution of a quantum harmonic oscillator wave function
+# The wave function in this example is an equal parts superposition of the first 2 basis states
+# This animation has a slider which allows a user to modify the mass during the animation
+
+
 P= 1000 # Number of points in the domain
 m = m_e # Particle Mass, mass of electron in this case
 k = (36*m) # Restoring force
