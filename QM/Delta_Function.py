@@ -4,7 +4,7 @@ import numpy as np
 from scipy.constants import hbar, m_e, pi
 from matplotlib.animation import FuncAnimation
 
-# This simple animation shows the time evolution of the wave function of a particle subject to a delta function potential, (problem 2.21 in Griffiths)
+# This simple animation shows the time evolution of the wave function of a particle subject to a delta function potential
 # The particle in this animation is bound, the delta function potential has only one energy level that corresponds to a bound state
 
 
