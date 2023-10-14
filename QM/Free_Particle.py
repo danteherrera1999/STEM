@@ -14,7 +14,7 @@ from matplotlib.animation import FuncAnimation
 
 
 P= 1000 # Number of points in the domain
-m = hbar # Particle Mass, mass of electron in this case
+m = hbar # Particle Mass, hbar in this case
 ts = 1/200 # This adjusts how fast the animation sweeps through time
 width = 5 # Domain Width
 a = 1 # gaussian coefficient
