@@ -34,7 +34,7 @@ L=ax.legend(loc=1)
 ax.set_ylim(-2,2)
 ax.set_xlabel(r'$x$')
 ax.set_ylabel(r'$\Psi(x,t)$',rotation=0)
-ax.set_title('Time Evolution Of An Example Infinite Square Well Wave Function')
+ax.set_title('Time Evolution Of '+r"$\Psi(x,t) = \frac{1}{\sqrt{3}}[\psi_0(x)\phi_0(t)+\psi_1(x)\phi_1(t)+\psi_2(x)\phi_2(t)]$")
 
 # Main Animation Update Function
 def update(frame):
