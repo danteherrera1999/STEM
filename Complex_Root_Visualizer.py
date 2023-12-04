@@ -21,6 +21,7 @@ def v(R,O,S):
 	
 fig,ax = plt.subplots()
 ln = 0
+
 def generate_slices(R,O):
 	global ln
 	ax.clear()
@@ -32,11 +33,9 @@ def generate_slices(R,O):
 	ln, = ax.plot(*v(R,O,0),color='red',zorder=100)
 
 def generate_sliders(O):
-	global ax_R,ax_S,S_slider,R_slider
-	try:
-		ax_R.clear()
-		ax_S.clear()
-	except:pass
+	global ax_R,ax_S,S_slider,R_slider #these need global scope to be changed while plt is running
+	ax_R.clear()
+	ax_S.clear()
 	S_slider = Slider(
     		ax=ax_S,
     		label="Slice",
