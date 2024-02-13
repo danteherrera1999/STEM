@@ -21,3 +21,14 @@ for i in S.keys():
 		temp.append([key for key in S.keys() if np.all(S[key] == o(S[i],j))][0])
 	print(i+' '+' '.join(temp))
 
+""" Output :
+   R0 R1 R2 R3 R4 R5 R6 R7
+R0 R0 R1 R2 R3 R4 R5 R6 R7
+R1 R1 R2 R3 R0 R6 R7 R5 R4
+R2 R2 R3 R0 R1 R5 R4 R7 R6
+R3 R3 R0 R1 R2 R7 R6 R4 R5
+R4 R4 R7 R5 R6 R0 R2 R3 R1
+R5 R5 R6 R4 R7 R2 R0 R1 R3
+R6 R6 R4 R7 R5 R1 R3 R0 R2
+R7 R7 R5 R6 R4 R3 R1 R2 R0
+"""
