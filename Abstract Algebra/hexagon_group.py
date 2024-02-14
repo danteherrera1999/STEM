@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 """
 This script generates the Cayley table for the subgroup of S_6 
 that corresponds to the symmetries of a regular hexagon
+This is exercise 7F from Charles Pinter's "A Book Of Abstract Algebra"
 """
 
 I = np.identity(6).astype(int)
