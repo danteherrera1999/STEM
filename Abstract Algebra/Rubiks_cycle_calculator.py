@@ -1,6 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-
 
 """
 This code takes a rubiks cube sequence (in Singmaster notation) and calculates the number of repititions of that sequence required to return to a solved cube
