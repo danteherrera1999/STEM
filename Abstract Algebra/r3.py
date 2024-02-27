@@ -107,7 +107,7 @@ def color_decode(carray):
 		(2,20,27):("w","b","o"),
 		(3,37):("w","g"),
 		(4,):("w",),
-		(5,20):("w","b"),
+		(5,19):("w","b"),
 		(6,9,38):("w","r","g"),
 		(7,10):("w","r"),
 		(8,11,18):("w","r","b"),
@@ -137,6 +137,7 @@ def color_decode(carray):
 			if np.all(np.sort(v1p) == np.sort(v2)): # If the block colors are the same
 				numbers[list(k1)] = [k2[v2.index(c)] for c in v1p]
 	print(numbers)
+	print(print(f"Error Sum: {np.sum(np.sort(numbers)-np.arange(54))}"))
 
 
 
