@@ -29,8 +29,8 @@ class particle:
 	# Bounce a particle back if it hits the plot boundary
 	def check_boundary(self):	
 		if self.cooldown == 0:
-			if abs(50-self.position[0]) > 50-self.radius: self.velocity[0] = -self.velocity[0]
-			if abs(50-self.position[1]) > 50-self.radius: self.velocity[1] = -self.velocity[1]
+			if abs(50-self.position[0]) > 50-self.radius: self.velocity[0] *= -1
+			if abs(50-self.position[1]) > 50-self.radius: self.velocity[1] *= -1
 			self.cooldown = 1
 	# Advance the particle's position in time
 	def step_position(self,dt):
@@ -39,12 +39,13 @@ class particle:
 		self.patch.center = self.position
 		if self.cooldown >0: self.cooldown -= 1
 		for collision in list(self.collision_history.keys()):
-			if self.collision_history[collision]==1: del self.collision_history[collision]
+			if self.collision_history[collision]==0: del self.collision_history[collision]
 			else: self.collision_history[collision] -= 1
 		return self.patch
 	# Update the recent collision dictionary
 	def add_collision(self,collision):
-		if not collision in self.collision_history.keys(): self.collision_history[collision] = 10
+		# This will prevent a particle from colliding with another ball for the number of iterations below
+		if not collision in self.collision_history.keys(): self.collision_history[collision] = 10 
 
 # Generate the smaller particles
 def generate_ordered_particles(N,upper_bound,right_bound,radius):
@@ -70,7 +71,7 @@ N = 144 # This number will be coerced to the nearest square
 
 particles,N = generate_ordered_particles(N,100,100,1)
 
-#	This adds the large particle
+# This adds the large particle
 particles=  np.array(particles+[particle(50,50,5,0,0,mass=5,color='r',alpha=1)])
 N += 1
 
