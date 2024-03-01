@@ -11,7 +11,6 @@ small particles that we can see seem spontaneous and strange. Adjust the "visibl
 """
 visible = True
 
-reflect = lambda V1,V2: V1 - 2 * V1 * V2
 class particle:
 	# Initialize the particle with an initial position and velocity
 	def __init__(self,x,y,r,Vx,Vy,mass=1,color='b',alpha = int(visible)):
